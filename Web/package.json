@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "npx tailwindcss -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/site.css",
-    "watch:css": "npx tailwindcss -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/site.css --watch"
+    "watch:css": "npx tailwindcss -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/site.css --watch",
+    "watch": "npm run watch:css & browser-sync start --proxy 'https://localhost:5001' --files 'wwwroot/css/*.css, Views/**/*.cshtml'"
   },
   "keywords": [],
   "author": "",

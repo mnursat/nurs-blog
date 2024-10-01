@@ -1,0 +1,59 @@
+﻿@model List<PostViewModel>;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="mt-5">
+    <table class="border-separate border-spacing-x-10 border-spacing-y-5 border border-slate-500 p-5">
+        <thead>
+        <tr>
+            <th class="">Id</th>
+            <th class="">Title</th>
+            <th class="">Created time</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Id</td>
+                <td>@post.Title</td>
+                <td>@post.CreatedAt</td>
+                <td>
+                    <div class="flex flex-row gap-x-2 ms-3">
+                        <button class="bg-indigo-600 text-white p-2 rounded-md">Подробнее</button>
+                        <button class="bg-red-600 text-white p-2 rounded-md">Удалить</button>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    @foreach (var post in Model)
+    {
+        <div class="w-96 rounded overflow-hidden shadow-lg bg-white mt-5">
+            <div class="px-6 py-4">
+                <div class="flex justify-between">
+                    <div class="font-semibold text-xl mb-2">@post.Title</div>
+                    <span>@post.CreatedAt.ToString("dd.MM.yyyy")</span>
+                </div>
+                <p class="text-gray-700 text-base">
+                    @Html.Raw(post.Description)...
+                </p>
+            </div>
+            <hr/>
+            <div class="flex justify-between">
+                <div class="px-6 pt-4 pb-2">
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag1</span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag2</span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag3</span>
+                </div>
+                <button class="bg-blue-600 text-white px-3 py-2 m-5 rounded-md">Перейти</button>
+            </div>
+        </div>
+    }
+</div>
+
